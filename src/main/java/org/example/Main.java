@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
-    public static void main(String[] args) throws UserNotFoundException {
+    public static void main(String[] args) {
         System.out.print("laksdj");
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService userService = context.getBean(UserService.class);
@@ -18,6 +18,10 @@ public class Main {
         User userFromDB = userService.getUserById(currentUser.getId());
         System.out.println(userFromDB.getUsername());
         userService.deleteUser(userFromDB.getId());
-        userService.getUserById(currentUser.getId());
+        try {
+            userService.getUserById(currentUser.getId());
+        } catch (UserNotFoundException e) {
+            System.out.println("Пользователь не найден: " + e.getMessage());
+        }
     }
 }
