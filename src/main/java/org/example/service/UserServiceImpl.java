@@ -5,8 +5,8 @@ import org.example.dao.UserDao;
 import org.example.model.User;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -18,18 +18,18 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User createUser(User user) {
-        return userDao.create(user);
+    public void createUser(User user) {
+        userDao.create(user);
     }
 
     @Override
-    public User getUserById(Long id) {
+    public Optional<User> getUserById(Long id) {
         return userDao.read(id);
     }
 
     @Override
     public List<User> getAllUsers() {
-        return new ArrayList<>();
+        return userDao.findAll();
     }
 
     @Override

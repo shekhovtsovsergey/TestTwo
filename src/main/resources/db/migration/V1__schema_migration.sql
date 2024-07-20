@@ -11,6 +11,3 @@ CREATE TABLE products (
                                  product_type VARCHAR(255),
                                  FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
-
-SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'PUBLIC';
