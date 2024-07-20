@@ -9,14 +9,10 @@ public class Products {
    private BigDecimal balance;
    private String productType;
 
-   public Products(long userId, String accountNumber, BigDecimal balance, String productType) {
-      this.userId = userId;
-      this.accountNumber = accountNumber;
-      this.balance = balance;
-      this.productType = productType;
+   public Products() {
    }
 
-   public Products() {
+   public Products(long id, long userId, String accountNumber, BigDecimal balance, String productType) {
    }
 
    public long getId() {
