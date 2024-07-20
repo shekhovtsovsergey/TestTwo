@@ -1,6 +1,6 @@
 package org.example.controller;
 
-import org.example.model.Products;
+import org.example.model.Product;
 import org.example.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,22 +17,27 @@ public class ProductController {
     }
 
     @PostMapping
-    public void createProduct(@RequestBody Products product) {
+    public void createProduct(@RequestBody Product product) {
         productService.createProduct(product);
     }
 
     @GetMapping("/{id}")
-    public Products getProductById(@PathVariable Long id) {
+    public Product getProductById(@PathVariable Long id) {
         return productService.getProductById(id);
     }
 
+    @GetMapping("/by-user/{id}")
+    public List<Product> getProductByUserId(@PathVariable Long id) {
+        return productService.getProductsByUserId(id);
+    }
+
     @GetMapping
-    public List<Products> getAllProducts() {
+    public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
     @PutMapping("/{id}")
-    public void updateProduct(@PathVariable Long id, @RequestBody Products product) {
+    public void updateProduct(@PathVariable Long id, @RequestBody Product product) {
         productService.updateProduct(product);
     }
 

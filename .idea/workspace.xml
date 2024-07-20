@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="470efe50-c0e1-44c6-a78d-6a8483da6662" name="Changes" comment="Lesson10">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ProductDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ProductDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/ProductDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/ProductDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/ProductServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.Main.executor": "Debug",
+    "Spring Boot.Main.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/shehovtsovsu/Desktop/HomeWorks/TestTwo/src/main/resources/db/migration",
@@ -166,7 +165,8 @@
       <workItem from="1720280369245" duration="493000" />
       <workItem from="1720281041116" duration="8506000" />
       <workItem from="1721397194807" duration="1436000" />
-      <workItem from="1721465592611" duration="6528000" />
+      <workItem from="1721465592611" duration="6543000" />
+      <workItem from="1721486991188" duration="5490000" />
     </task>
     <task id="LOCAL-00001" summary="Lesson9">
       <option name="closed" value="true" />
@@ -216,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721482071703</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Lesson10">
+      <option name="closed" value="true" />
+      <created>1721483174005</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721483174005</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,16 +234,5 @@
     <MESSAGE value="Lesson9" />
     <MESSAGE value="Lesson10" />
     <option name="LAST_COMMIT_MESSAGE" value="Lesson10" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/dao/ProductDaoImpl.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

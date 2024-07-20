@@ -2,17 +2,19 @@ package org.example.model;
 
 import java.math.BigDecimal;
 
-public class Products {
+public class Product {
    private long id;
    private long userId;
    private String accountNumber;
    private BigDecimal balance;
    private String productType;
 
-   public Products() {
-   }
-
-   public Products(long id, long userId, String accountNumber, BigDecimal balance, String productType) {
+   public Product(long id, long userId, String accountNumber, BigDecimal balance, String productType) {
+      this.id = id;
+      this.userId = userId;
+      this.accountNumber = accountNumber;
+      this.balance = balance;
+      this.productType = productType;
    }
 
    public long getId() {

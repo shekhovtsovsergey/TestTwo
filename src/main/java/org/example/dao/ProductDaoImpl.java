@@ -1,6 +1,6 @@
 package org.example.dao;
 
-import org.example.model.Products;
+import org.example.model.Product;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -21,7 +21,7 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public void createProduct(Products product) {
+    public void createProduct(Product product) {
         String sql = "INSERT INTO products (user_id, account_number, balance, product_type) VALUES (?, ?, ?, ?)";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -36,14 +36,14 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Products getProductById(Long id) {
+    public Product getProductById(Long id) {
         String sql = "SELECT * FROM products WHERE id = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setLong(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    return new Products(
+                    return new Product(
                             resultSet.getLong("id"),
                             resultSet.getLong("user_id"),
                             resultSet.getString("account_number"),
@@ -59,14 +59,14 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public List<Products> getAllProducts() {
+    public List<Product> getAllProducts() {
         String sql = "SELECT * FROM products";
-        List<Products> products = new ArrayList<>();
+        List<Product> products = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    products.add(new Products(
+                    products.add(new Product(
                             resultSet.getLong("id"),
                             resultSet.getLong("user_id"),
                             resultSet.getString("account_number"),
@@ -76,13 +76,38 @@ public class ProductDaoImpl implements ProductDao {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error reading products", e);
+            throw new RuntimeException("Error reading products from database: " + e.getMessage(), e);
+        }
+        return products;
+    }
+    @Override
+    public List<Product> getProductByUserId(Long userId) {
+        String sql = "SELECT * FROM products WHERE user_id = ?";
+        List<Product> products = new ArrayList<>();
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setLong(1, userId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    products.add(new Product(
+                            resultSet.getLong("id"),
+                            resultSet.getLong("user_id"),
+                            resultSet.getString("account_number"),
+                            resultSet.getBigDecimal("balance"),
+                            resultSet.getString("product_type")
+                    ));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error reading products from database: " + e.getMessage(), e);
         }
         return products;
     }
 
+
+
     @Override
-    public void updateProduct(Products product) {
+    public void updateProduct(Product product) {
         String sql = "UPDATE products SET user_id = ?, account_number = ?, balance = ?, product_type = ? WHERE id = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
